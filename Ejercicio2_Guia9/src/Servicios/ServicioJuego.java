@@ -32,7 +32,7 @@ public class ServicioJuego {
         int cont=0,cont1=0;
         do {
             for (Jugador aux : jugadores) {
-                if (juego1.getRevolver().getPosicionActual()==juego1.getRevolver().getPosicionAgua()) {
+                if (accion.disparo(juego1.getRevolver())) {
                     aux.setMojado(true);
                     cont++;
                     
@@ -42,7 +42,7 @@ public class ServicioJuego {
                     break;
                     
                 }else{
-                accion1.siguienteChorro(juego1.getRevolver());
+                //accion1.siguienteChorro(juego1.getRevolver());
                 cont1++;
                     System.out.println((cont1));
                 }

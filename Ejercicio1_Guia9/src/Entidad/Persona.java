@@ -6,6 +6,8 @@
 
 package Entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author pittu
@@ -72,6 +74,47 @@ private Perro perro;
     @Override
     public String toString() {
         return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", documento=" + documento + ", perro=" + perro + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.nombre);
+        hash = 59 * hash + Objects.hashCode(this.apellido);
+        hash = 59 * hash + Objects.hashCode(this.edad);
+        hash = 59 * hash + Objects.hashCode(this.documento);
+        hash = 59 * hash + Objects.hashCode(this.perro);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido, other.apellido)) {
+            return false;
+        }
+        if (!Objects.equals(this.edad, other.edad)) {
+            return false;
+        }
+        if (!Objects.equals(this.documento, other.documento)) {
+            return false;
+        }
+        if (!Objects.equals(this.perro, other.perro)) {
+            return false;
+        }
+        return true;
     }
 
   

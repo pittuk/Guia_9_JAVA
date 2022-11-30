@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="57578787878">
+  <ClassDiagramComponents>
+    <Class name="cliente" package="" visibility="public" xPosition="222.0" yPosition="647.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="mail" type="String" visibility="private"/>
+        <Field name="documento" type="Integer" visibility="private"/>
+        <Field name="domicilio" type="String" visibility="private"/>
+        <Field name="telefono" type="Integer" visibility="private"/>
+        <Field name="vehiculos" type="ArrayList&lt;vehiculo&gt;" visibility="private"/>
+        <Field name="polizasVehiculos" type="ArrayList&lt;poliza&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="vehiculo" package="" visibility="public" xPosition="137.0" yPosition="339.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="anio" type="Integer" visibility="private"/>
+        <Field name="numeroMotor" type="Integer" visibility="private"/>
+        <Field name="chasis" type="String" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="poliza" package="" visibility="public" xPosition="672.0" yPosition="323.0">
+      <Fields>
+        <Field name="vehiculo" type="Vehiculo" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="numeroPoliza" type="Integer" visibility="private"/>
+        <Field name="fechaInicioPoliza" type="Date" visibility="private"/>
+        <Field name="fechaFinPoliza" type="Date" visibility="private"/>
+        <Field name="cantidadCuotas" type="Integer" visibility="private"/>
+        <Field name="metodosDePago" type="metodosDePago" visibility="private"/>
+        <Field name="montoTotalAsegurado" type="Double" visibility="private"/>
+        <Field name="granizo" type="Boolean" visibility="private"/>
+        <Field name="montoMaximoGranizo" type="Integer" visibility="private"/>
+        <Field name="tipoCobertura" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="cuotasPoliza" package="" visibility="public" xPosition="637.0" yPosition="725.0">
+      <Fields>
+        <Field name="metodosDePAgo" type="metodosDePago" visibility="private"/>
+        <Field name="numeroCuota" type="Integer" visibility="private"/>
+        <Field name="montoTotalCuota" type="Double" visibility="private"/>
+        <Field name="pagoRealizado" type="Boolean" visibility="private"/>
+        <Field name="fechaVencimiento" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="metodosDePago" package="" visibility="public" xPosition="1302.0" yPosition="527.0">
+      <Literals>
+        <Literal name="efectivo"/>
+        <Literal name="debito"/>
+        <Literal name="transferencia"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="C.P" source="cliente" target="poliza" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="C.V" source="cliente" target="vehiculo" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="P.mdP" source="poliza" target="metodosDePago" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="Cp.P" source="cuotasPoliza" target="poliza" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="CP.mDP" source="cuotasPoliza" target="metodosDePago" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="V.P" source="vehiculo" target="poliza" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="1" source="poliza" target="cuotasPoliza" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -36,7 +36,7 @@ public class ServicioJugador {
         ServicioRevolver accion = new ServicioRevolver();
 
         if (accion.mojar(r1)) {
-            System.out.println("Muerto");
+            System.out.println("Mojado");
             return true;
         } else {
             accion.siguienteChorro(r1);

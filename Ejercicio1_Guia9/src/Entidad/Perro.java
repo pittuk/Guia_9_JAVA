@@ -6,8 +6,10 @@
 
 package Entidad;
 
+
 import Enumeraciones.Raza;
 import Enumeraciones.TamanioPerro;
+import java.util.Objects;
 
 /**
  *
@@ -19,15 +21,17 @@ public class Perro {
     private Raza raza;
     private Integer edad;
     private TamanioPerro tamanio;
+    private Boolean disponible;
 
     public Perro() {
     }
 
-    public Perro(String nombre, Raza raza, Integer edad, TamanioPerro tamanio) {
+    public Perro(String nombre, Raza raza, Integer edad, TamanioPerro tamanio, Boolean disponible) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.tamanio = tamanio;
+        this.disponible = disponible;
     }
 
     public String getNombre() {
@@ -62,11 +66,47 @@ public class Perro {
         this.tamanio = tamanio;
     }
 
-    @Override
-    public String toString() {
-        return "Perro{" + "nombre=" + nombre + ", raza=" + raza + ", edad=" + edad + ", tamanio=" + tamanio + '}';
+    public Boolean getDisponible() {
+        return disponible;
     }
 
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Perro other = (Perro) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }
+
+   
+
+    @Override
+    public String toString() {
+        return "Perro{" + "nombre=" + nombre + ", raza=" + raza + ", edad=" + edad + ", tamanio=" + tamanio + ", disponible=" + disponible + '}';
+    }
+
+    
    
     
             

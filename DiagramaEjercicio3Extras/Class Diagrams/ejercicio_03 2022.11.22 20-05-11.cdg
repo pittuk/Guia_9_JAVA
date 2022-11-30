@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ejercicio_03">
+  <ClassDiagramComponents>
+    <Class name="Ejercicio_03" package="ejercicio_03" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Baraja" package="ejercicio_03.entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="num" type="int" visibility="private"/>
+        <Field name="palo" type="Palo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="Palo" name="palo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNum" returnType="int" visibility="public"/>
+        <Method name="setNum" returnType="void" visibility="public">
+          <Argument type="int" name="num"/>
+        </Method>
+        <Method name="getPalo" returnType="Palo" visibility="public"/>
+        <Method name="setPalo" returnType="void" visibility="public">
+          <Argument type="Palo" name="palo"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mazo" package="ejercicio_03.entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="cartas" type="LinkedList&lt;Baraja&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCartas" returnType="LinkedList&lt;Baraja&gt;" visibility="public"/>
+        <Method name="setCartas" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MazoService" package="ejercicio_03.servicio" visibility="public" xPosition="320.0" yPosition="332.0">
+      <Fields>
+        <Field name="leer" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearBaraja" returnType="LinkedList&lt;Baraja&gt;" visibility="public"/>
+        <Method name="barajar" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+        </Method>
+        <Method name="siguienteCarta" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+          <Argument type="LinkedList&lt;Baraja&gt;" name="monton"/>
+        </Method>
+        <Method name="mostrarCartas" returnType="String" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+        </Method>
+        <Method name="darCartas" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+          <Argument type="LinkedList&lt;Baraja&gt;" name="monton"/>
+        </Method>
+        <Method name="cartasMonton" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="monton"/>
+        </Method>
+        <Method name="mostrarBaraja" returnType="void" visibility="public">
+          <Argument type="LinkedList&lt;Baraja&gt;" name="cartas"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Palo" package="ejercicio_03.enumeradores" visibility="public" xPosition="901.0" yPosition="256.0">
+      <Literals>
+        <Literal name="ESPADAS"/>
+        <Literal name="BASTOS"/>
+        <Literal name="OROS"/>
+        <Literal name="COPAS"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="ejercicio_03.entidades.Mazo" target="ejercicio_03.entidades.Baraja" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ejercicio_03.servicio.MazoService" target="ejercicio_03.entidades.Baraja" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ejercicio_03.entidades.Baraja" target="ejercicio_03.enumeradores.Palo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="palo" source="ejercicio_03.entidades.Baraja" target="ejercicio_03.enumeradores.Palo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cartas" source="ejercicio_03.entidades.Mazo" target="ejercicio_03.entidades.Baraja" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Baraja&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
